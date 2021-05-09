@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.CartoonBookDao">
+    <select id="getAllCartoonBooks" resultMap="cartoonBooks">
+        select * from cartoonbook
+        <where>
+            <if test="cartoonType != null">
+                cartoonType = #{cartoonType}
+            </if>
+        </where>
+
+    </select>
+    <select id="getOneCartoonBook" resultType="com.example.demo.domain.CartoonBook">
+        select * from cartoonbook where cId = #{cId}
+    </select>
+
+    <resultMap id="cartoonBooks" type="com.example.demo.domain.CartoonBook">
+        <id property="cId" column="cId"></id>
+        <result property="cName" column="cName"></result>
+        <result property="cartoonCoverUrl" column="cartoonCoverUrl"/>
+        <result property="cartoonType" column="cartoonType"/>
+        <result property="introduction" column="introduction"/>
+    </resultMap>
+</mapper>

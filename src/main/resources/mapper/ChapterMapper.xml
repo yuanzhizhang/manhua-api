@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.ChapterDao">
+    <select id="getChapters" resultMap="chatpers">
+        SELECT * FROM cartoonchapter
+        <where>
+            <if test="cId != null and cId != ''">
+                and cartoonId = #{cId}
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="chatpers" type="com.example.demo.domain.Chapter">
+        <id property="chapterId" column="chapterId"/>
+        <result property="cartoonId" column="cartoonId"/>
+        <result property="chapterOrderId" column="chapterOrderId"/>
+        <result property="chapterTitle" column="chapterTitle"/>
+    </resultMap>
+</mapper>
+

@@ -20,4 +20,10 @@ public class UserServiceImp implements UserService {
         return false;
     }
 
+    @Override
+    public int addUser(AppUser user) {
+
+        return userDao.addUser(user);
+    }
+
 }

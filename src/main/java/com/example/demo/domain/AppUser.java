@@ -3,7 +3,6 @@ package com.example.demo.domain;
 
 public class AppUser {
     private String username;
-
     private String password;
 
     public AppUser() {

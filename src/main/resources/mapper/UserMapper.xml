@@ -9,4 +9,9 @@
         <id property="username" column="username"></id>
         <result property="password" column="password"></result>
     </resultMap>
+
+    <insert id="addUser" parameterType="com.example.demo.domain.AppUser" >
+        INSERT into appuser(username,password) VALUES (#{username},#{password})
+    </insert>
+
 </mapper>

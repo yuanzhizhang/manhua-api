@@ -5,4 +5,6 @@ import com.example.demo.domain.AppUser;
 public interface UserService {
     public boolean login (AppUser user);
 
+    public int addUser(AppUser user);
+
 }
